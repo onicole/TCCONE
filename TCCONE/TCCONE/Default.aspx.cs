@@ -13,5 +13,22 @@ namespace TCCONE
         {
 
         }
+
+        protected string Welcome()
+        {
+            string message = "";
+
+            if (System.DateTime.Now.Hour < 18)
+            {
+                message="Bonjour";
+            }
+            else
+            {
+                message="Bonsoir";
+            }
+
+            return message;
+        }
     }
+
 }

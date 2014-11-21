@@ -2,17 +2,17 @@
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
     <hgroup class="title">
-        <h1><%: Title %>.</h1>
-        <h2>Your contact page.</h2>
+        <h1><%: Title %></h1>
+        <h2>Une question ? n'hésitez pas à nous contacter</h2>
     </hgroup>
 
     <section class="contact">
         <header>
-            <h3>Phone:</h3>
+            <h3>Téléphone :</h3>
         </header>
         <p>
             <span class="label">Main:</span>
-            <span>425.555.0100</span>
+            <span>079 576 22 85</span>
         </p>
         <p>
             <span class="label">After Hours:</span>
