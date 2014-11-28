@@ -6,7 +6,7 @@
             <hgroup class="title">
                 <h1><%: Title %> : </h1>
                 <h2>
-                    <% Welcome(); %>
+                    <%= Welcome() %>
                     et bienvenue sur le site du Tennis Club Chavornay</h2>
             </hgroup>
             <p>
