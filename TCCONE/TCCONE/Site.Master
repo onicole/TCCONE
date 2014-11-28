@@ -64,6 +64,7 @@
                 <nav>
                     <ul id="menu">
                         <li><a runat="server" href="~/">Accueil</a></li>
+                        <li><a runat="server" href="~/Courts">Courts</a></li>
                         <li><a runat="server" href="~/Members">Membres</a></li>
                         <li><a runat="server" href="~/Stats">Statistiques</a></li>
                         <li><a runat="server" href="~/Admin">Administration</a></li>
