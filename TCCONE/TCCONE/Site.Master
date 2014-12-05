@@ -70,6 +70,7 @@
                         <li><a runat="server" href="~/Admin">Administration</a></li>
                         <li><a runat="server" href="~/Contact">Contact</a></li>
                         <li><a runat="server" href="~/About">About</a></li>
+                        <li><a runat="server" href="~/Profile">Profil</a></li>
                     </ul>
                 </nav>
             </div>
