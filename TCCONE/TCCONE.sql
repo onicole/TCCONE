@@ -154,6 +154,19 @@ INSERT INTO credentials([login],[password],[fkRole],[fkPerson]) VALUES('Campbell
 GO
 
 /*
+	Création d'une vue
+*/
+CREATE VIEW Commitee AS
+SELECT dbo.roles.name, dbo.credentials.login, dbo.persons.firstname, dbo.persons.lastname
+FROM dbo.credentials 
+INNER JOIN dbo.persons ON dbo.credentials.fkPerson = dbo.persons.idPerson 
+INNER JOIN dbo.roles ON dbo.credentials.fkRole = dbo.roles.idRole
+WHERE (dbo.roles.name = 'Comité') 
+OR (dbo.roles.name = 'Caissier') 
+OR (dbo.roles.name = 'Président')
+GO
+
+/*
 	TRIGGERS 
 */
 -- Ajoute automatiquement un utilisateur lors de l'ajout d'un Booking
@@ -186,4 +199,54 @@ BEGIN
 	CLOSE booking_cursor
 	DEALLOCATE booking_cursor
 END
+GO 
 
+-- Insertion d'un membre du comité en donnant son username et son rôle
+CREATE TRIGGER add_member_comitee ON dbo.Commitee
+INSTEAD OF INSERT
+AS
+BEGIN
+	DECLARE @username AS varchar(255)
+	DECLARE @role AS varchar(255)
+	DECLARE @idCred AS int
+
+	-- Récupére le username et le rôle
+	SELECT @username = login, @role = name FROM inserted
+
+	-- Faire une requête pour récupérer l'ID de l'utilisateur
+	SELECT @idCred = idCredential 
+	FROM credentials
+	INNER JOIN roles ON idRole = fkRole 
+	WHERE name = @role AND login = @username
+
+	-- Redéfinir son rôle en "Commité"
+	UPDATE credentials 
+	SET fkRole = 4
+	WHERE idCredential = @idCred
+END
+GO
+
+-- Suppression d'un membre du comité en donnant son username et son rôle
+CREATE TRIGGER del_member_comitee ON dbo.Commitee
+INSTEAD OF DELETE
+AS
+BEGIN
+	DECLARE @username AS varchar(255)
+	DECLARE @role AS varchar(255)
+	DECLARE @idCred AS int
+
+	-- Récupére le username et le rôle
+	SELECT @username = login, @role = name FROM deleted
+
+	-- Faire une requête pour récupérer l'ID de l'utilisateur
+	SELECT @idCred = idCredential 
+	FROM credentials
+	INNER JOIN roles ON idRole = fkRole 
+	WHERE name = @role AND login = @username
+
+	-- Redéfinir son rôle en "Commité"
+	UPDATE credentials 
+	SET fkRole = 2
+	WHERE idCredential = @idCred
+END
+GO
