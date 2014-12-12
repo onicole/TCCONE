@@ -12,38 +12,51 @@
     <table>
     <tr>
     <td>
-    <asp:Label ID="UserId" runat="server" Text="UserId"></asp:Label>
-    <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+    <asp:Label ID="Firstname" runat="server" Text="Firstname"></asp:Label>
+    <asp:TextBox ID="Firstname_TextBox" runat="server"></asp:TextBox>
+    <asp:RequiredFieldValidator id="Validator1" runat="server" ControlToValidate="Firstname_TextBox" ErrorMessage="*First name is a required field." ForeColor="Red"></asp:RequiredFieldValidator>
     </td>
     </tr>
-    <tr>
-    <td>
-    <asp:Label ID="Firstname" runat="server" Text="Firstname"></asp:Label>
-    <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
-    </td>
-        </tr>
     <tr>
     <td>
     <asp:Label ID="Lastname" runat="server" Text="Lastname"></asp:Label>
-    <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+    <asp:TextBox ID="Lastname_TextBox" runat="server"></asp:TextBox>
+    <asp:RequiredFieldValidator id="Validator2" runat="server" ControlToValidate="Lastname_TextBox" ErrorMessage="*Last name is a required field." ForeColor="Red"></asp:RequiredFieldValidator>
     </td>
         </tr>
     <tr>
     <td>
-    <asp:Label ID="UserName" runat="server" Text="UserName"></asp:Label>
-    <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
+    <asp:Label ID="Address1" runat="server" Text="Address1"></asp:Label>
+    <asp:TextBox ID="Address1_TextBox" runat="server"></asp:TextBox>
+        <asp:RequiredFieldValidator id="Validator3" runat="server" ControlToValidate="Address1_TextBox" ErrorMessage="*Address1 is a required field." ForeColor="Red"></asp:RequiredFieldValidator>
     </td>
         </tr>
     <tr>
     <td>
-    <asp:Label ID="Password" runat="server" Text="Password"></asp:Label>
-    <asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
+    <asp:Label ID="Address2" runat="server" Text="Address2"></asp:Label>
+    <asp:TextBox ID="Address2_TextBox" runat="server"></asp:TextBox>
     </td>
     </tr>
     <tr>
     <td>
-    <asp:Label ID="ConfirmPassword" runat="server" Text="Confirm Password"></asp:Label>
-    <asp:TextBox ID="TextBox6" runat="server"></asp:TextBox>
+    <asp:Label ID="NPA" runat="server" Text="NPA"></asp:Label>
+    <asp:TextBox ID="NPA_TextBox" runat="server"></asp:TextBox>
+    <asp:Label ID="Ville" runat="server" Text="Ville"></asp:Label>
+    <asp:TextBox ID="Ville_TextBox" runat="server"></asp:TextBox>
+    <asp:RequiredFieldValidator id="Validator4" runat="server" ControlToValidate="NPA_TextBox" ErrorMessage="*NPA is a required field." ForeColor="Red"></asp:RequiredFieldValidator>
+    </td>
+    </tr>
+     <tr>
+    <td>
+    <asp:Label ID="Phone" runat="server" Text="Phone"></asp:Label>
+    <asp:TextBox ID="Phone_TextBox" runat="server"></asp:TextBox>
+    </td>
+    </tr>
+    <tr>
+    <td>
+    <asp:Label ID="Email" runat="server" Text="Email"></asp:Label>
+    <asp:TextBox ID="Email_TextBox" runat="server"></asp:TextBox>
+    <asp:RequiredFieldValidator id="Validator5" runat="server" ControlToValidate="Email_TextBox" ErrorMessage="*Last name is a required field." ForeColor="Red"></asp:RequiredFieldValidator>
     </td>
     </tr>
     </table>
